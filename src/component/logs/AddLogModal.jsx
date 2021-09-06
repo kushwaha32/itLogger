@@ -1,26 +1,28 @@
 import { useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
 import { connect } from "react-redux";
-import {addLog} from "../../actions/logActions";
+import { addLog } from "../../actions/logActions";
+import SelectTechOption from "../techs/SelectTechOption";
 
-const AddLogModal = ({addLog}) => {
+const AddLogModal = ({ addLog }) => {
   const [message, setMessage] = useState("");
   const [attention, setAttention] = useState(false);
   const [tech, setTech] = useState("");
+
   const onSubmit = () => {
     if (message === "" || tech === "") {
       M.toast({ html: "Please enter a message and tech" });
     } else {
-       const sendData = {
-         message,
-         attention,
-         tech,
-         date: new Date()
-       }
-       addLog(sendData);
-       setMessage("");
-       setTech("");
-       setAttention(false);
+      const sendData = {
+        message,
+        attention,
+        tech,
+        date: new Date(),
+      };
+      addLog(sendData);
+      setMessage("");
+      setTech("");
+      setAttention(false);
     }
   };
   return (
@@ -51,11 +53,7 @@ const AddLogModal = ({addLog}) => {
               <option value="" disabled>
                 Select Technician
               </option>
-              <option value="Raj Kushwaha">John Doe</option>
-              <option value="Yash Mourya">Yash Mourya</option>
-              <option value="Vihan Mourya">Vihan Mourya</option>
-              <option value="Soumya">Soumya</option>
-              <option value="Krishna">Krishna</option>
+              <SelectTechOption />
             </select>
           </div>
         </div>
@@ -96,4 +94,4 @@ const modalStyle = {
   height: "75%",
 };
 
-export default connect(null, {addLog})(AddLogModal);
+export default connect(null, { addLog })(AddLogModal);

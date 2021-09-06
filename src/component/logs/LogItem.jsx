@@ -4,6 +4,11 @@ import { setCurrent, deleteLog } from "../../actions/logActions";
 
 
 const LogItem = ({ log, setCurrent, deleteLog }) => {
+  const confirmDilog = () => {
+    if(window.confirm("Are you sure you want to delete the log")){
+      deleteLog(log.id);
+    }
+  }
   return (
     <li className="collection-item">
       <div>
@@ -23,7 +28,7 @@ const LogItem = ({ log, setCurrent, deleteLog }) => {
           <span className="black-text">{log.tech}</span> on {" "}
           <Moment format="MMMM Do YYYY, h:mm:ss a">{ log.date}</Moment>
         </span>
-        <a href="!#" onClick={() => deleteLog(log.id)} className="secondary-content">
+        <a href="!#" onClick={confirmDilog} className="secondary-content">
             <i className="material-icons grey-text">delete</i>
         </a>
       </div>

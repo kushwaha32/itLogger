@@ -1,19 +1,26 @@
-const NavBar = () => {
+import { useState } from "react";
+import { connect } from "react-redux";
+import { searchLog } from "../../actions/logActions";
+
+const NavBar = ({ searchLog }) => {
+  const [search, setSearch] = useState("")
+  const onChange = e => {
+     setSearch(e.target.value);
+     searchLog(search);
+  }
   return (
     <nav style={{marginBottom: "30px"}} className="blue">
       <div className="nav-wrapper">
-        <form>
           <div className="input-field">
-            <input id="search" type="search" required />
+            <input id="search" value={search} onChange={onChange} type="search" required />
             <label className="label-icon" htmlFor="search">
               <i className="material-icons">search</i>
             </label>
             <i className="material-icons">close</i>
           </div>
-        </form>
       </div>
     </nav>
   );
 };
 
-export default NavBar;
+export default connect(null, { searchLog })(NavBar);

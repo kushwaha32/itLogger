@@ -7,3 +7,11 @@ export const SET_CURRENT = "SET_CURRENT";
 export const CLEAR_CURRENT = "CLEAR_CURRENT";
 export const LOG_UPDATE = "LOG_UPDATE";
 export const DELETE_LOG = "DELETE_LOG";
+
+// log related variable
+
+export const GET_TECHS = "GET_TECHS";
+export const ADD_TECH = "ADD_TECH";
+export const DELETE_TECH = "DELETE_TECH";
+export const TECH_ERROR = "TECH_ERROR";
+export const SEARCH_LOG = "SEARCH_LOG";

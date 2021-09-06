@@ -6,7 +6,8 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   LOG_UPDATE,
-  DELETE_LOG
+  DELETE_LOG,
+  SEARCH_LOG
 } from "../actions/Types";
 
 const initialState = {
@@ -16,7 +17,7 @@ const initialState = {
   error: null,
 };
 
-export default (state = initialState, action) => {
+ const logReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_LOGS:
       return {
@@ -24,6 +25,11 @@ export default (state = initialState, action) => {
         logs: action.payload,
         loading: false,
       };
+    case SEARCH_LOG:
+      return{
+        ...state,
+        logs: action.payload
+      }
     case ADD_LOG:
       return {
         ...state,
@@ -67,3 +73,6 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+
+export default logReducer;

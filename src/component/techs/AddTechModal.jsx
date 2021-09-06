@@ -1,13 +1,20 @@
 import { useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
+import { connect } from "react-redux";
+import { addTech } from "../../actions/techAction";
 
-const AddTechModal = () => {
+const AddTechModal = ({ addTech }) => {
   const [firstName, setFirstNname] = useState("");
   const [lastName, setLastName] = useState("");
   const onSubmit = () => {
       if(firstName === "" || lastName === ""){
           M.toast({ html: "Please fill out all the field"})
       }else{
+          const techData = {
+              firstName,
+              lastName
+          }
+          addTech(techData);
           // clear all field
           setFirstNname("");
           setLastName("");
@@ -53,7 +60,7 @@ const AddTechModal = () => {
         <a
           
           href="#!"
-          onClick={onsubmit}
+          onClick={onSubmit}
           className={`btn blue waves-effect ${
             firstName !== "" && lastName !== "" ? "modal-close" : ""
           }`}
@@ -64,4 +71,4 @@ const AddTechModal = () => {
   );
 };
 
-export default AddTechModal;
+export default connect(null, {addTech})(AddTechModal);

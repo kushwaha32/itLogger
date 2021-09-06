@@ -1,28 +1,25 @@
 {
   "logs": [
     {
-      "message": "please fix the stret light in the dharam kata road",
+      "message": "Fix the dharamkata road street light",
       "attention": true,
-      "tech": "Vihan Mourya",
-      "date": "2021-09-03T12:59:12.535Z",
-      "id": 6
+      "tech": "Raj ",
+      "date": "2021-09-04T13:04:34.490Z",
+      "id": 1
+    },
+    {
+      "message": "please fix the sever chamber",
+      "attention": true,
+      "tech": "Raj ",
+      "date": "2021-09-06T12:30:38.488Z",
+      "id": 2
     }
   ],
   "techs": [
     {
-      "id": 1,
-      "firstName": "raj",
-      "lastName": "Kushwaha"
-    },
-    {
-      "id": 2,
-      "firstName": "vihan",
-      "lastName": "Kushwaha"
-    },
-    {
-      "id": 3,
-      "firstName": "krishna",
-      "lastName": "Kushwaha"
+      "firstName": "Raj ",
+      "lastName": "kushwaha",
+      "id": 1
     }
   ]
 }
